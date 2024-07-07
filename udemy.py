@@ -45,6 +45,7 @@ def cloning_repo():
     if not os.path.exists(repo_path):
         # It does not exist, clone the repository
         os.system(f'git clone https://github.com/AImetricsIO/udemy_advances_ta_ml.git {repo_path}')
+        print(f"Repository cloned successfully in Google Colab environment to {repo_path}")
     else:
         # It does exist, update the repository
         try:
