@@ -55,4 +55,14 @@ def cloning_repo():
         except Exception as e:
             print(f"Failed to update repository: {e}")
 
+# Function to create a download button
+def create_download_link(df, filename, title="Download CSV file"):
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()  # Codificar en base64 para la descarga
+    href = f'data:text/csv;base64,{b64}'  # Crear el enlace de descarga
+    
+    # Generar el botón de descarga
+    button_html = f'<a download="{filename}" href="{href}" target="_blank">{title}</a>'
+    
+    return HTML(button_html)
 
