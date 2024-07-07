@@ -31,7 +31,8 @@ def display_selected_ticker(ticker, df):
     code = ticker
     name = df[df['code'] == ticker]['name'].values[0]
     print(f"Selected Ticker: {code}\nCompany Name: {name}")
-
+    return code, name  # Return code and name
+    
 import os
 def cloning_repo():
     # This function will clone or update the repo in github with all the files
