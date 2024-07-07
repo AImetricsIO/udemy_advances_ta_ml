@@ -27,10 +27,9 @@ def install_and_import(package_name):
             print(f"An error occurred during installation: {e}")
 
 # Funcion to show the company in selector
-def display_selected_ticker(ticker):
-    global code, name, df_SPcomponents
+def display_selected_ticker(ticker, df):
     code = ticker
-    name = df_SPcomponents[df_SPcomponents['code'] == ticker]['name'].values[0]
+    name = df[df['code'] == ticker]['name'].values[0]
     print(f"Selected Ticker: {code}\nCompany Name: {name}")
 
 import os
