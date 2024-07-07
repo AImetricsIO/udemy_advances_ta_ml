@@ -1,6 +1,6 @@
-import subprocess
-import sys
-from IPython.display import clear_output
+import subprocess, sys, os
+from IPython.display import clear_output, HTML, display
+import base64 
 
 def install_and_import(package_name):
     # How to call it: install_and_import('pandas_ta')
@@ -33,7 +33,6 @@ def display_selected_ticker(ticker, df):
     print(f"Selected Ticker: {code}\nCompany Name: {name}")
     return code, name  # Return code and name
     
-import os
 def cloning_repo():
     # This function will clone or update the repo in github with all the files
     # But it's in the Google Colab environment, not in the local user's computer
@@ -57,7 +56,6 @@ def cloning_repo():
 
 # Function to create a download button
 def create_download_link(df, filename, title="Download CSV file"):
-    import base64
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # Codificar en base64 para la descarga
     href = f'data:text/csv;base64,{b64}'  # Crear el enlace de descarga
