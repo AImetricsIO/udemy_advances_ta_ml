@@ -12,7 +12,7 @@ def install_and_import(package_name):
     except ImportError:
         # If not installed, attempt to install the package
         try:
-            print(f"Installing {package_name} library not by default in Colab")
+            print(f"Installing {package_name} library not by default in Google Colab")
             result = subprocess.run([sys.executable, "-m", "pip", "install", package_name], capture_output=True, text=True)
             # If the installation is successful, clear the partial output and show the final message
             if result.returncode == 0:
