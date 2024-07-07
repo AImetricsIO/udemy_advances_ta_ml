@@ -34,22 +34,23 @@ def display_selected_ticker(ticker):
     print(f"Selected Ticker: {code}\nCompany Name: {name}")
 
 import os
-# This function will clone or update the repo in github with all the files
-# But it's in the Google Colab environment, not in the local user's computer
 def cloning_repo():
+    # This function will clone or update the repo in github with all the files
+    # But it's in the Google Colab environment, not in the local user's computer
+    # Call the function to execute the process of cloning or updating the repository
+    # udemy.cloning_repo()
     repo_path = '/content/udemy_advances_ta_ml'  # Path where the repository will be cloned
     
     # Check if the repository directory already exists
     if not os.path.exists(repo_path):
         # It does not exist, clone the repository
-        !git clone https://github.com/AImetricsIO/udemy_advances_ta_ml.git $repo_path
+        os.system(f'git clone https://github.com/AImetricsIO/udemy_advances_ta_ml.git {repo_path}')
     else:
         # It does exist, update the repository
         try:
-            %cd $repo_path
-            !git pull origin main
-        except:
-            print(f"Failed to change directory to {repo_path}. Make sure the repository is cloned correctly.")
+            os.chdir(repo_path)
+            os.system('git pull origin main')
+        except Exception as e:
+            print(f"Failed to update repository: {e}")
 
-# Call the function to execute the process of cloning or updating the repository
-cloning_repo()
+
