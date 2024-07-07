@@ -51,6 +51,7 @@ def cloning_repo():
         try:
             os.chdir(repo_path)
             os.system('git pull origin main')
+            print(f"Repository cloning updated successfully in Google Colab environment to {repo_path}")
         except Exception as e:
             print(f"Failed to update repository: {e}")
 
