@@ -57,6 +57,7 @@ def cloning_repo():
 
 # Function to create a download button
 def create_download_link(df, filename, title="Download CSV file"):
+    import base64
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()  # Codificar en base64 para la descarga
     href = f'data:text/csv;base64,{b64}'  # Crear el enlace de descarga
